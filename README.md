@@ -16,7 +16,9 @@
 - Inspecionar itens no jogo.
 
 ## Observações:
-- Devido ao endpoint da API da steam que retornava o inventário dos usuários ter sido removido, foi necessário utilizar o endpoint que o próprio site da steam utiliza ao carregar um inventário (o que constantemente ocasiona em rate-limit), a princípio a ideia era carregar e tratar todas as informações no server, porém devido a essa limitação da steam, o request que carrega o inventário foi jogado para o componente do inventário no client e é feito localmente na maquina do usuário a cada carregamento da página. <s>(Porque na verdade a steam não quer que esse tipo de projeto exista)</s>
+- Devido ao endpoint da `API da steam` que retornava o inventário dos usuários ter sido `removido`, foi necessário utilizar o endpoint que o próprio site da steam utiliza ao carregar um inventário (o que constantemente ocasiona em `rate-limit`), a princípio a ideia era `carregar` e `tratar` todas as informações no `server-side`, porém devido a essa limitação da steam, o request que carrega o inventário foi jogado para o componente do inventário no `client-side` e é feito localmente na maquina do usuário a cada carregamento da página. 
+
+<s>(Na verdade a steam não quer que esse tipo de projeto exista)</s>
 
 ## Exemplos:
 ![Exemplo](https://media.discordapp.net/attachments/1132549314330239037/1132549370097696860/steamviewer2.png?width=1381&height=701)
