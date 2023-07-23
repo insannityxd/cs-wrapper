@@ -7,7 +7,6 @@ import { ItemCard } from "@/components/ItemCard";
 import { buildIconLink } from "@/utils/buildWeaponIconUrl";
 import { getWeaponStickers } from "@/utils/getWeaponStickers";
 import { toast } from "react-toastify";
-import { items } from "../../../inventoryExample";
 
 async function fetchProfileInventory(steamId: string): Promise<ProfileInventoryRequest> {
     const url = `https://steamcommunity.com/inventory/${steamId}/730/2?count=2000&l=english`
@@ -48,26 +47,24 @@ export const InventoryContainer = ({ steamId }: InventoryContainerProps) => {
     const [loading, setLoading] = useState<boolean>(true);
 
     useEffect(() => {
-        // setLoading(true);
-        // fetchProfileInventory(steamId)
-        // .then(result => {
-        //     if(!result || !result.success || !result.data) {
-        //         return toast.error("Could not retrieve inventory items", {
-        //             position: "top-right",
-        //             autoClose: 3500,
-        //             hideProgressBar: false,
-        //             closeOnClick: true,
-        //             pauseOnHover: false,
-        //             draggable: true,
-        //             theme: "dark",
-        //         });
-        //     }
-        //     setProfileInventory(result.data);
-        //     setLoading(false);
-        // })
-        // .catch(error => console.error(error));
-        setProfileInventory(items);
-        setLoading(false);
+        setLoading(true);
+        fetchProfileInventory(steamId)
+        .then(result => {
+            if(!result || !result.success || !result.data) {
+                return toast.error("Could not retrieve inventory items", {
+                    position: "top-right",
+                    autoClose: 3500,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: true,
+                    theme: "dark",
+                });
+            }
+            setProfileInventory(result.data);
+            setLoading(false);
+        })
+        .catch(error => console.error(error));
     }, [steamId]);
 
     return (
