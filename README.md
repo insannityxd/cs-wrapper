@@ -1,34 +1,22 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## CounterStrike Inventory Viewer (cs-wrapper)
+- Este projeto tem o objetivo de facilitar a visualização do inventário do CounterStrike de qualquer usuário a partir do URL do perfil.
 
-## Getting Started
+## Frameworks Utilizados:
+- <a href="https://nextjs.org/">Next.js</a> - v13
+- <a href="https://tailwindcss.com/">Tailwind CSS</a> (Estilização do site)
+- <a href="https://fkhadra.github.io/react-toastify/">React-Toastify</a> (Notificações de maneira simplificada)
+- <a href="https://momentjs.com/">Moment.js</a> (Conversão de timestamp/data/tempo)
+- <a href="https://heroicons.com/">Heroicons</a> (Importação de icones simplificados)
 
-First, run the development server:
+## Features:
+- Carregar inventário & informações de usuários a partir do URL do perfil.
+- Copiar URL permanente da steam.
+- Carregar stickers colados no item.
+- Checar StatTrak, Tradelock e outras informações dos itens.
+- Inspecionar itens no jogo.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Observações:
+- Devido ao endpoint da API da steam que retornava o inventário dos usuários ter sido removido, foi necessário utilizar o endpoint que o próprio site da steam utiliza ao carregar um inventário (o que constantemente ocasiona em rate-limit), a princípio a ideia era carregar e tratar todas as informações no server, porém devido a essa limitação da steam, o request que carrega o inventário foi jogado para o componente do inventário no client e é feito localmente na maquina do usuário a cada carregamento da página. <s>(Porque na verdade a steam não quer que esse tipo de projeto exista)</s>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Exemplos:
+![Exemplo](https://media.discordapp.net/attachments/1132549314330239037/1132549370097696860/steamviewer2.png?width=1381&height=701)
